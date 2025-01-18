@@ -28,6 +28,11 @@
             width: 30%;
             text-align: center;
         }
+        
+        img {
+            width: 150px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -45,13 +50,10 @@
     <script>
         window.onload = function() {
             setTimeout(() => {
-                document.body.innerHTML = '';
                 for (let i = 0; i < 50; i++) {
-                    let img = document.createElement('img');
-                    img.src = 'https://placekitten.com/200/300'; // Example kitten image
-                    img.style.width = '150px';
-                    img.style.margin = '10px';
-                    document.body.appendChild(img);
+                    let imgUrl = 'https://placekitten.com/200/300'; // Example kitten image
+                    let newTab = window.open(imgUrl, '_blank'); // Open image in new tab
+                    newTab.document.write(`<img src="${imgUrl}" width="300" />`); // Display image in the new tab
                 }
             }, 5000); // Trigger after 5 seconds
         };
