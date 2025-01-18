@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Prank</title>
+    <title>Surprise!</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            height: 100vh;
             margin: 0;
+            height: 100vh;
+            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #fff;
-        }
-
-        #clickMeButton {
-            padding: 20px 40px;
-            font-size: 24px;
+            flex-direction: column;
             color: white;
-            background-color: #232f3e;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
+            font-family: Arial, sans-serif;
         }
 
-        #clickMeButton:hover {
-            background-color: #ff9900;
+        img {
+            max-width: 80%;
+            max-height: 80%;
+            margin-bottom: 20px;
+        }
+
+        .ip-address {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <button id="clickMeButton">Click Me</button>
+    <img src="https://placekitten.com/800/600" alt="Random Image" />
+    <div class="ip-address">Loading your IP address...</div>
 
     <script>
-        document.getElementById('clickMeButton').onclick = function() {
-            setTimeout(() => {
-                for (let i = 0; i < 50; i++) {
-                    let imgUrl = 'https://placekitten.com/200/300'; // Example kitten image
-                    let newTab = window.open(imgUrl, '_blank'); // Open image in new tab
-                    newTab.document.write(`<img src="${imgUrl}" width="300" />`); // Display image in the new tab
-                }
-            }, 1000); // Start after 1 second delay
-        };
+        // Fetch public IP address using a public API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelector('.ip-address').textContent = 'Your Public IP: ' + data.ip;
+            })
+            .catch(err => {
+                document.querySelector('.ip-address').textContent = 'Unable to fetch IP address.';
+            });
     </script>
 </body>
 </html>
