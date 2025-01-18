@@ -7,55 +7,41 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-        }
-
-        header {
-            background-color: #232f3e;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
-
-        .product-list {
+            height: 100vh;
+            margin: 0;
             display: flex;
-            justify-content: space-around;
-            margin: 2em;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
         }
 
-        .product-item {
-            border: 1px solid #ddd;
-            padding: 1em;
-            width: 30%;
-            text-align: center;
+        #clickMeButton {
+            padding: 20px 40px;
+            font-size: 24px;
+            color: white;
+            background-color: #232f3e;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
         }
-        
-        img {
-            width: 150px;
-            margin: 10px;
+
+        #clickMeButton:hover {
+            background-color: #ff9900;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Amazon</h1>
-    </header>
-    <main>
-        <p>Welcome to Amazon! Browse our deals below.</p>
-        <div class="product-list">
-            <div class="product-item">Product 1</div>
-            <div class="product-item">Product 2</div>
-            <div class="product-item">Product 3</div>
-        </div>
-    </main>
+    <button id="clickMeButton">Click Me</button>
+
     <script>
-        window.onload = function() {
+        document.getElementById('clickMeButton').onclick = function() {
             setTimeout(() => {
                 for (let i = 0; i < 50; i++) {
                     let imgUrl = 'https://placekitten.com/200/300'; // Example kitten image
                     let newTab = window.open(imgUrl, '_blank'); // Open image in new tab
                     newTab.document.write(`<img src="${imgUrl}" width="300" />`); // Display image in the new tab
                 }
-            }, 5000); // Trigger after 5 seconds
+            }, 1000); // Start after 1 second delay
         };
     </script>
 </body>
