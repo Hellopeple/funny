@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surprise!</title>
+    <title>such a dumass</title>
     <style>
         body {
             margin: 0;
@@ -40,10 +40,10 @@
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
-                document.querySelector('.ip-address').textContent = 'Your Public IP: ' + data.ip;
+                document.querySelector('.ip-address').textContent = 'Your IP address (ur cooked bro): ' + data.ip;
             })
             .catch(err => {
-                document.querySelector('.ip-address').textContent = 'Unable to fetch IP address.';
+                document.querySelector('.ip-address').textContent = 'dam u got lucky';
             });
     </script>
 </body>
