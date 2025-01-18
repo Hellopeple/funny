@@ -31,7 +31,8 @@
     </style>
 </head>
 <body>
-    <img src="/workspaces/funny/Untitled Design.jpg"/>
+    <!-- Use the raw image URL here -->
+    <img src="https://raw.githubusercontent.com/Hellopeple/funny/main/Untitled%20design.jpg" alt="Your Image" />
     <div class="ip-address">Loading your IP address...</div>
 
     <script>
@@ -39,10 +40,10 @@
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
-                document.querySelector('.ip-address').textContent = 'Your IP adrress: ' + data.ip;
+                document.querySelector('.ip-address').textContent = 'Your Public IP: ' + data.ip;
             })
             .catch(err => {
-                document.querySelector('.ip-address').textContent = 'dam u got lucky';
+                document.querySelector('.ip-address').textContent = 'Unable to fetch IP address.';
             });
     </script>
 </body>
